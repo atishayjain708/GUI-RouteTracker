@@ -29,15 +29,7 @@ public class JsonRead {
             Object obj = parser.parse(new FileReader("c:\\json\\test.json"));
 
             JSONObject jsonObject = (JSONObject) obj;
-            
 
-            /*String name = (String) jsonObject.get("name");
-            System.out.println(name);
-
-            long age = (Long) jsonObject.get("age");
-            System.out.println(age);
-
-            */// loop array
             JSONArray msg = (JSONArray) jsonObject.get("cities");
             Iterator i = msg.iterator();
             if (i.hasNext()) {
@@ -66,15 +58,9 @@ public class JsonRead {
             Object obj = parser.parse(new FileReader("c:\\json\\test.json"));
 
             JSONObject jsonObject = (JSONObject) obj;
-            
-
-            /*String name = (String) jsonObject.get("name");
+            String name = (String) jsonObject.get("name");
             System.out.println(name);
 
-            long age = (Long) jsonObject.get("age");
-            System.out.println(age);
-
-            */// loop array
             JSONArray msg = (JSONArray) jsonObject.get("cities");
             Iterator i = msg.iterator();
             while (i.hasNext()) {
@@ -96,35 +82,7 @@ public class JsonRead {
         }
                     return null;
     }
-           /*public String getNext(String curr, int n)//return the nth of the next cities of the given node
-    {
-        
-        JSONParser parser = new JSONParser();
-        try {
-
-            Object obj = parser.parse(new FileReader("c:\\json\\test.json"));
-
-            JSONObject jsonObject = (JSONObject) obj;
-
-            JSONArray cities = (JSONArray) jsonObject.get("cities");
-            Iterator i = cities.iterator();
-            while (i.hasNext()) {
-                JSONObject city = (JSONObject) i.next();
-                if(((String)city.get("name")).equalsIgnoreCase(curr)&&(((String)city.get("flag")).equalsIgnoreCase("no"))){
-                    String next = (String)city.get("next");
-                    return next;
-            }
-            }
-        }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-                    return null;
-    }*/
+           
         public String getNext(String curr)
     {
         
@@ -135,8 +93,8 @@ public class JsonRead {
 
             JSONObject jsonObject = (JSONObject) obj;
 
-            JSONArray msg = (JSONArray) jsonObject.get("cities");
-            Iterator i = msg.iterator();
+            JSONArray arr = (JSONArray) jsonObject.get("cities");
+            Iterator i = arr.iterator();
             while (i.hasNext()) {
                 JSONObject city = (JSONObject) i.next();
                 String next=((String)city.get("name"));
